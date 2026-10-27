@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Manrope:wght@500;600;700&display=swap");
+
+
+:root {
+  --brown: #661f2b;
+  --brown-dark: #30282a;
+  --taupe: #8f5558;
+  --ivory: #f1eeee;
+  --paper: #faf8f7;
+  --rose-gold: #90595d;
+}
+
+* { box-sizing: border-box; }
+html { background: #b8b5b2; }
+body { margin: 0; color: var(--brown-dark); font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif; }
+button, a { font: inherit; }
+
+.stage {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: radial-gradient(ellipse at 50% 10%, #f2efed 0, #d6d2cf 42%, #aaa9a5 100%);
+}
+
+.invitation {
+  width: min(100%, 430px);
+  min-height: min(820px, calc(100svh - 44px));
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid #c9bcbe;
+  box-shadow: 0 24px 70px #30282a30, 0 0 40px #f0e8e755;
+  animation: card-in .65s cubic-bezier(.22,.75,.2,1) both;
+}
+
+.floral-hero, .details-hero {
+  position: relative;
+  background-image: linear-gradient(135deg, #f5f1efe0, #d8c8cbe0 52%, #ece9e7e8), url("./floral-invitation-bg.png");
+  background-size: cover;
+  background-position: center top;
+}
+
+.floral-hero { height: 470px; padding: 42px 30px; }
+.details-hero { height: 365px; padding: 34px 28px; background-position: center 2%; }
+
+.topline {
+  margin: 0;
+  color: var(--brown-dark);
+  font: 700 .75rem/1.4 "Manrope", Arial, sans-serif;
+  letter-spacing: .24em;
+  text-align: center;
+}
+
+.occasion { margin: 14px 0 0; color: var(--brown-dark); font-size: 1.35rem; font-weight: 600; letter-spacing: .13em; text-align: center; text-transform: uppercase; }
+.forty { margin: 2px 0 0; color: #661f2b; font: 400 5.7rem/.86 "Allura", "Snell Roundhand", cursive; text-align: center; text-shadow: 0 2px 16px #fffafa; }
+.forty.small { font-size: 4rem; }
+
+.cover-portrait, .portrait {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid #faf7f6;
+  outline: 2px solid #90595d;
+  box-shadow: 0 12px 32px #4e202936, 0 0 28px #c79a9e66;
+  background: #251e1a;
+}
+.cover-portrait { width: 212px; height: 212px; left: 50%; transform: translateX(-50%); bottom: 40px; }
+.portrait { width: 178px; height: 178px; left: 50%; transform: translateX(-50%); bottom: 24px; z-index: 4; }
+.cover-portrait img, .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 24%; }
+
+.cover-sheet, .info-sheet { position: relative; z-index: 2; text-align: center; background: linear-gradient(155deg, #fffdfc 0%, var(--paper) 55%, #f3eaeb 100%); }
+.cover-sheet { min-height: 350px; margin-top: -28px; padding: 52px 34px 28px; border-radius: 52% 52% 0 0 / 34px 34px 0 0; }
+.info-sheet { margin-top: -18px; padding: 40px 30px 32px; border-radius: 52% 52% 0 0 / 28px 28px 0 0; }
+
+.honour { margin: 0 0 8px; color: var(--brown); font: 700 .75rem/1.5 "Manrope", Arial, sans-serif; letter-spacing: .18em; }
+h1 { margin: 0; color: var(--brown); font: 400 5rem/.85 "Allura", "Snell Roundhand", cursive; }
+.cover-copy, .message { color: #62575a; font-size: 1.12rem; font-weight: 500; line-height: 1.5; }
+.cover-copy { margin: 19px auto 24px; max-width: 310px; }
+.message { margin: 17px 0 18px; }
+
+.open-button, .actions a {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 700 .75rem/1.2 "Manrope", Arial, sans-serif;
+  letter-spacing: .1em;
+}
+.open-button { width: 230px; color: white; background: var(--brown); box-shadow: 0 9px 22px #661f2b30; }
+.open-button:hover, .primary:hover { background: #4c1520; }
+
+.back { position: absolute; z-index: 6; top: 20px; left: 20px; width: 42px; height: 42px; border-radius: 50%; border: 1px solid #90595d; color: var(--brown-dark); background: #faf7f6e8; cursor: pointer; }
+.secret-note { margin: 0 0 20px; padding: 14px 15px; text-align: left; color: #58323a; background: #f0e1e3; border-left: 4px solid var(--rose-gold); font-size: 1.08rem; font-weight: 500; line-height: 1.45; }
+.secret-note strong { color: #4c1520; }
+
+.event-grid { display: grid; grid-template-columns: 1fr 1fr 1.25fr; border-block: 1px solid #d7cacc; }
+.event-grid div { min-width: 0; padding: 16px 7px; display: flex; flex-direction: column; justify-content: center; }
+.event-grid div + div { border-left: 1px solid #d7cacc; }
+.event-grid strong { color: var(--brown-dark); font: 700 1.05rem/1.2 "Manrope", Arial, sans-serif; }
+.event-grid span { color: var(--brown); font: 700 .8rem/1.5 "Manrope", Arial, sans-serif; }
+.event-grid small { margin-top: 3px; color: #6b5c60; font: 700 .7rem/1.2 "Manrope", Arial, sans-serif; letter-spacing: .08em; }
+
+.venue-address { margin: 18px 0 0; color: #62575a; font-size: 1rem; font-weight: 500; line-height: 1.45; }
+.family-note { margin: 18px 0 0; color: #62575a; font-size: 1.08rem; font-weight: 500; }
+.actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+.actions a { padding: 8px 12px; }
+.secondary { color: var(--brown); border: 1px solid var(--brown) !important; background: white; }
+.primary { color: white; background: var(--brown); }
+.rsvp-contact { margin: 14px 0 0; color: #62575a; font: 600 .86rem/1.4 "Manrope", Arial, sans-serif; }
+.closing { margin: 18px 0 0; color: var(--brown); font-size: 1.05rem; font-style: italic; font-weight: 500; }
+.draft-label { margin: 22px 0 0; color: #77666b; font: 700 .7rem/1.4 "Manrope", Arial, sans-serif; letter-spacing: .12em; }
+
+@keyframes card-in { from { opacity: 0; transform: translateY(22px) scale(.985); } to { opacity: 1; transform: none; } }
+@media (max-width: 370px) {
+  .stage { padding: 0; }
+  .invitation { min-height: 100svh; }
+  .floral-hero { height: 450px; padding-inline: 20px; }
+  .cover-portrait { width: 200px; height: 200px; bottom: 30px; }
+  .info-sheet { padding-inline: 20px; }
+  h1 { font-size: 4.3rem; }
+  .actions { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .invitation { animation: none; } }
+
+[hidden] { display: none !important; }
+body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img { display: block; max-width: 100%; }
+button:focus-visible, a:focus-visible { outline: 3px solid #90595d; outline-offset: 4px; }
+
+/* Navy, gold and ivory palette for Simba's celebration. */
+:root{--brown:#132f4c;--brown-dark:#10243a;--taupe:#a57c3c;--ivory:#f8f2e3;--paper:#fffaf0;--rose-gold:#b7904b}
+html{background:#071a2e}
+.stage{background:radial-gradient(ellipse at 50% 10%,#304c67 0,#102a45 48%,#071727 100%)}
+.invitation{border:1px solid #c5a563;box-shadow:0 24px 70px #0008,0 0 40px #d1a74d33}
+.floral-hero,.details-hero{background-image:linear-gradient(135deg,#0b2239b3,#153655a6 52%,#091c30bb),url('./floral-invitation-bg.png')}
+.topline,.occasion{color:#fff8ea;text-shadow:0 2px 8px #071b2c}
+.forty{color:#f8d991;text-shadow:0 2px 12px #071728}
+.cover-portrait,.portrait{border-color:#fff8e7;outline-color:#cba85e;box-shadow:0 12px 32px #0007,0 0 28px #d5b46588}
+.cover-sheet,.info-sheet{background:linear-gradient(155deg,#fffdf6 0%,#fbf5e8 55%,#efe3ca 100%)}
+.cover-copy,.message,.venue-address,.rsvp-contact{color:#394b5b}
+.open-button,.primary{color:#fff9e9;background:#123353;box-shadow:0 9px 22px #0b213b33}
+.open-button:hover,.primary:hover{background:#234b70}
+.back{border-color:#c8a65e;color:#102a45;background:#fff9e9ed}
+.event-grid{border-color:#d8c396}.event-grid div+div{border-color:#d8c396}.event-grid small{color:#596775}
+.secondary{color:#173b5a;border-color:#b18c49!important;background:#fffaf0}
+button:focus-visible,a:focus-visible{outline-color:#bd9348}
+.bank{background:#f5ecd9!important;border-color:#cfb779!important;color:#18324a!important}.bank button{border-color:#a78950!important;background:#fffaf0!important;color:#18324a!important}.dress-note{color:#18324a!important}
+/* Formal geometric backdrop */
+.floral-hero,.details-hero{background-image:radial-gradient(ellipse at 50% 14%,#39516a 0%,#142e48 45%,#08192b 100%)}
+.floral-hero:before,.details-hero:before{content:'';position:absolute;inset:12px;border:1px solid #d3b36d99;pointer-events:none}
+.floral-hero:after,.details-hero:after{content:'✦     ✧     ✦';position:absolute;bottom:9px;left:0;right:0;text-align:center;color:#d7ba7b;font-size:12px;letter-spacing:.5em;pointer-events:none}
